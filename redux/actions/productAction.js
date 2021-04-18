@@ -11,8 +11,6 @@ export const fetchProducts = () => dispatch => {
     const items = []
     Firebase.firestore().collection("Items").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-           // console.log(doc.id, " => ", doc.data());
             items.push(doc.data());
           
 
@@ -24,7 +22,7 @@ export const fetchProducts = () => dispatch => {
             })
         });
     });
-  
+}
 
 
 export const addProduct= (product, collection) => dispatch => {
