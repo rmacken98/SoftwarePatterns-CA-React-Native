@@ -14,10 +14,10 @@ export const fetchProducts = () => dispatch => {
             // doc.data() is never undefined for query doc snapshots
            // console.log(doc.id, " => ", doc.data());
             items.push(doc.data());
-            console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+          
 
             console.log(items)
-            console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+           
             dispatch({
                 type: FETCH_PRODUCTS,
                 payload: items
@@ -25,6 +25,19 @@ export const fetchProducts = () => dispatch => {
         });
     });
   
+
+
+export const addProduct= (product, collection) => dispatch => {
+    const items=[];
+
+    Firebase.firestore()
+    .collection(collection)
+    .add({product}) 
+    .then((snapshot)=>{
+        object.id = snapshot.id;
+        snapshot.set(product);
+      })
+}
    
 }
 
