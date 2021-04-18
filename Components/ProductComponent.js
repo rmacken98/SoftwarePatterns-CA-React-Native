@@ -16,11 +16,11 @@ class Product extends Component {
         const { product } = this.props;
             return (
         <View style={styles.container}>
-            {/* <Image source={product.picture} style={{width:150,height:150}}/> */}
+             <Image source={product.picture} style={{width:150,height:150}}/> 
             <View style={styles.productDes}>
-                <Text>{product.title}</Text>
-               
-                <Text>{product.author}</Text>
+                <Text>{product.name}</Text>
+            <Text>€{product.cost}</Text>
+                <Text>{product.manufacturer}</Text>
                 <Button onPress={this.addToCart} style={styles.addBtn}>
                     <Text style={styles.text}>Add to cart</Text>
                 </Button>
