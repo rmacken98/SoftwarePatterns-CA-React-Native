@@ -8,18 +8,6 @@
         this.price = price;
         this.quantity = quantity;
     }
-    
-
-
-    // constructor() {
-    //     this.item = {
-    //         name: '',
-    //         manufacturer: '',
-    //         price: 0,
-    //         quantity: 0,
-    //     };
-    // }
-
 
  export let  ItemBuilder = function ()  {
 let name;
