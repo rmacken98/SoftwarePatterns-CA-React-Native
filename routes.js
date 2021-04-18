@@ -12,8 +12,9 @@ const Route = createStackNavigator(
  SignUp: { screen: SignUp},
   Products: { screen: Products},
   Checkout: { screen: Checkout},
- 
+  Receipt: { screen: Receipt}
 },
+
 
 
 {
