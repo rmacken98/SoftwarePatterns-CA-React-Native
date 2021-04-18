@@ -9,6 +9,17 @@ export default function(state = initialState, action) {
                 ...state,
                 items:action.payload
             }
+        case FETCH_SPEAKERS:
+            return{
+                ...state,
+                item:action.payload
+            }
+            case ADD_PRODUCT:{
+                return{
+                    ...state,
+                    item:action.payload
+                }
+            }
         default:
             return state
     }

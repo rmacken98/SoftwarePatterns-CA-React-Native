@@ -3,7 +3,7 @@ import {
     View, 
     Text,
     StyleSheet,
-    TouchableOpacity,
+    
     Alert 
 } from 'react-native';
 import { connect } from 'react-redux';

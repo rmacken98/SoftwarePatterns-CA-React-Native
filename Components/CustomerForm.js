@@ -5,7 +5,7 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
+  
   FlatList,
   Alert
 } from 'react-native';
