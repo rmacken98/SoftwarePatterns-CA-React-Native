@@ -5,9 +5,9 @@ import {
   Text
 } from "react-native";
 import Firebase from "./FirebaseConfig";
-import {addToFirestore} from "./Firebase"
-import { Input } from "./components/input";
-import { Button } from "./components/Button";
+import {addToFirestore2} from "./Firebase"
+import { Input } from "./Components/Input";
+import { Button } from "./Components/Button";
 
 class Signup extends React.Component {
 
@@ -18,13 +18,19 @@ class Signup extends React.Component {
     
     const user={uuid: this.state.uuid, name: this.state.name, email: email, shippingAddress: this.state.shippingAddress,paymentMethod:this.state.paymentMethod}
     Firebase.auth()
-      .createUserWithEmailAndPassword(email, password)
-       
-  
-      .catch(error => console.log(error));
-       addToFirestore('Users',user)
+    .createUserWithEmailAndPassword(email, password)
 
-      this.props.navigation.navigate("ItemList")}
+
+    .catch(error => console.log(error));
+    Firebase.firestore()
+    .collection('Users')
+    .add(user)
+    .then((snapshot)=>{
+      user.id = snapshot.id;
+      snapshot.set(user);
+    })
+
+      this.props.navigation.navigate("Products")}
   state = {
     name: "",
     email: "",
