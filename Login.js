@@ -23,7 +23,7 @@ class Login extends React.Component {
   if (email=== 'admin' &&  password ==='?adm?n?'){
     Firebase.auth()
     .signInWithEmailAndPassword(email, password)
-    .then(() => this.props.navigation.navigate("AdminItemList"))
+    .then(() => this.props.navigation.navigate("AddProducts"))
     .catch(error => console.log(error));
 }
 
