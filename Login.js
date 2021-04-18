@@ -5,14 +5,12 @@ import {
   StyleSheet,
   Image,
 
-
+  
 } from "react-native";
 import Firebase from "./FirebaseConfig";
-import { Input } from "./components/input";
-import { Button } from "./components/Button";
-// import { createAppContainer } from 'react-navigation';
-// import { createStackNavigator } from 'react-navigation-stack';
-//import SignUp from './SignUp';
+import { Input } from "./Components/Input";
+import { Button } from "./Components/Button";
+
 class Login extends React.Component {
 
       _SignUp = () => {
@@ -21,22 +19,26 @@ class Login extends React.Component {
 
   handleLogin = () => {
     const { email, password } = this.state;
-    if (email=== 'admin' &&  password ==='?adm?n?'){
-        Firebase.auth()
-        .signInWithEmailAndPassword(email, password)
-        .then(() => this.props.navigation.navigate("AdminItemList"))
-        .catch(error => console.log(error));
-    }
-    
-      else{
-    
-    
-        Firebase.auth()
-          .signInWithEmailAndPassword(email, password)
-          .then(() => this.props.navigation.navigate("ItemList"))
-          .catch(error => console.log(error));
-      }
+
+  if (email=== 'admin' &&  password ==='?adm?n?'){
+    Firebase.auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(() => this.props.navigation.navigate("AdminItemList"))
+    .catch(error => console.log(error));
+}
+
+  else{
+   
+   
+    Firebase.auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => this.props.navigation.navigate("ItemList"))
+      .catch(error => console.log(error));
+  }
   };
+
+
+
   state = {
     email: "",
     password: ""
@@ -46,7 +48,7 @@ class Login extends React.Component {
 
   render() {
     return (
-
+      
 
 
       <View style={styles.container}>
@@ -92,4 +94,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login; 
+export default Login;
